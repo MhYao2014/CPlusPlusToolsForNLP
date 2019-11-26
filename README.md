@@ -1,4 +1,4 @@
-# CPlusPlusToolsForNLP
+# C/CPPToolsForNLP
 ## 语料预处理
 给自己积累的一些工具，主要是速度快：
 + 建立词频表，并保存在文件中。
