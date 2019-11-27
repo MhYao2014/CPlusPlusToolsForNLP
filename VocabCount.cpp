@@ -221,6 +221,21 @@ ARRAYUNIT * BuildVocab(FILE *CorpusFile, long long MaxVocab, long long MinCount,
     fprintf(stderr, "\nCounted %lld unique words.\n", VocabSize);
     // 开始利用最大词表长度以及最小词频限制删减词典,
     CutVocab(VocabArray,MaxVocab,MinCount,VocabSize, IfSaveVocab);
+    // 释放内存，防止出现野指针
+    HASHUNIT *htmp,*hpre;
+    for (int i=0;i<TSIZE;i++) {
+        if (VocabHash[i] != NULL) {
+            htmp = VocabHash[i];
+            while (htmp != NULL) {
+                free(htmp->Word);
+                hpre = htmp;
+                htmp = htmp->next;
+                free(hpre);
+            }
+        }
+    }
+    free(VocabArray);
+    free(VocabHash);
     return VocabArray;
 }
 
