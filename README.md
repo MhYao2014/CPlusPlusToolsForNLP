@@ -5,6 +5,7 @@
 + cd CPlusPlusToolsForNLP
 + g++ -g BuildVocabAndCooccur.cpp -o BuildVocabAndCooccur
 + ./BuildVocabAndCooccur --help
+
 上述命令行全部在linux的终端跑；windows的赶快在microsoft store上装一个ubuntu子系统，然后在子系统里搞；Mac我没用过。最后像git，g++，exe文件等软件里面一般都会带有--help的flag；先看自带的使用说明，再上网找教程。这里我的exe文件就记录了如何使用的命令行。
 ## IfBuildVocab == 1时
 + 建立词频表，并保存在文件中。
