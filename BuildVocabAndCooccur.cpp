@@ -563,7 +563,7 @@ int main(int argc, char **argv) {
         printf("\t-HalfWinWidth <int>\n");
         printf("\t\tThe half window width with default value being 5.\n");
         printf("\nExample usage:\n");
-        printf("./vocab_count -verbose 2 -IfBuildVocab 1 -IfSaveVocab 1 -IfBuildCoocur 1 -IfSaveCoocur 1 -max-vocab 100000 -min-count 10 < corpus.txt > vocab.txt\n");
+        printf("./BuildVocabAndCooccur -verbose 2 -IfBuildVocab 1 -IfSaveVocab 1 -IfBuildCoocur 1 -IfSaveCoocur 1 -max-vocab 50000 -min-count 10 -HalfWinWidth 5 < corpus.txt > vocab.txt\n");
         return 0;
     }
     if ( (i = find_flag((char*)"-verbose", argc, argv)) > 0 ) {
