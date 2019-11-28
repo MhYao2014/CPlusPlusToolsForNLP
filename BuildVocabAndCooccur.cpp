@@ -435,13 +435,13 @@ int BuildCoocur(FILE *CorpusFile, ARRAYUNIT *VocabArray, HASHUNITID **NewHashVoc
         // 可以举一个只有3个单词的例子验证一下加减的常数
         lookup[lookupIndex] = lookup[lookupIndex-1] + VocabSize + 1;
     }
-    fprintf(stderr, "Coocur matrix contains %lld elements theoraticaly\n",lookup[lookupIndex-1]);
     // allocate memory for full coocur matrix
     CoocurMatrix = (int *)calloc(lookup[lookupIndex-1]+1, sizeof(int));
     if (CoocurMatrix == NULL) {
         fprintf(stderr, "\nCouldn't allocate memory!");
         return 1;
     }
+    fprintf(stderr, "Coocur matrix contains %lld elements theoraticaly\n",lookup[lookupIndex-1]);
     // 开始统计共现信息。先将CorpusFile文件的指针置放在文件开头。
     rewind(CorpusFile);
     // 首先摘取一整段的文本，将字符全查哈希表后变成id组成“line” vector。
