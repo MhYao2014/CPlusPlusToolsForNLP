@@ -537,8 +537,10 @@ int main(int argc, char **argv) {
     int IfBuildVocab=1,IfSaveVocab=1;
     int IfBuildCoocur=1,IfSaveCoocur=1;
     char CoocurOutputFile[200];
-    // 打印帮助信息，不用看。
-    if (argc == 1) {
+
+    // 读取flag
+    if ( (i = find_flag((char*)"--help", argc, argv)) > 0 ) {
+        // 打印帮助信息，不用看。
         printf("Simple tool to extract unigram counts\n");
         printf("Author: Jeffrey Pennington (jpennin@stanford.edu)\n\n");
         printf("Usage options:\n");
@@ -564,7 +566,6 @@ int main(int argc, char **argv) {
         printf("./vocab_count -verbose 2 -IfBuildVocab 1 -IfSaveVocab 1 -IfBuildCoocur 1 -IfSaveCoocur 1 -max-vocab 100000 -min-count 10 < corpus.txt > vocab.txt\n");
         return 0;
     }
-    // 读取flag
     if ( (i = find_flag((char*)"-verbose", argc, argv)) > 0 ) {
         verbose = atoi(argv[i+1]);
         fprintf(stderr, "The verbosity is: %d\n", verbose);
