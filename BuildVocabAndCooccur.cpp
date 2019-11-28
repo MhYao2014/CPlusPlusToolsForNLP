@@ -344,7 +344,7 @@ ARRAYUNIT * BuildVocab(FILE *CorpusFile, HASHUNITID **VocabHash,long long MaxVoc
         if (IfNotGet) { continue;}
         HashMapWord(Word,VocabHash);
         if (((++TokenCounter) % 100000) == 0) {
-            fprintf(stderr, "\rHave read\033[11G %lld tokens so far.",TokenCounter);
+            fprintf(stderr, "\rHave read %lld tokens so far.",TokenCounter);
         }
     }
     // 将带链表的哈希表转化为数组array，方便后面排序
@@ -541,8 +541,8 @@ int main(int argc, char **argv) {
     // 读取flag
     if ( (i = find_flag((char*)"--help", argc, argv)) > 0 ) {
         // 打印帮助信息，不用看。
-        printf("Simple tool to extract unigram counts\n");
-        printf("Author: Jeffrey Pennington (jpennin@stanford.edu)\n\n");
+        printf("Simple tool to build vocab and cooccurrence\n");
+        printf("mhyao (mhyao@mail.ustc.edu.cn)\n\n");
         printf("Usage options:\n");
         printf("\t-verbose <int>\n");
         printf("\t\tSet verbosity: 0, 1, or 2 (default)\n");
@@ -563,7 +563,7 @@ int main(int argc, char **argv) {
         printf("\t-HalfWinWidth <int>\n");
         printf("\t\tThe half window width with default value being 5.\n");
         printf("\nExample usage:\n");
-        printf("./BuildVocabAndCooccur -verbose 2 -IfBuildVocab 1 -IfSaveVocab 1 -IfBuildCoocur 1 -IfSaveCoocur 1 -max-vocab 50000 -min-count 10 -HalfWinWidth 5 < corpus.txt > vocab.txt\n");
+        printf("./BuildVocabAndCooccur -verbose 2 -IfBuildVocab 1 -IfSaveVocab 1 -IfBuildCoocur 1 -IfSaveCoocur 1 -max-vocab 50000 -min-count 10 -CoocurOutputFile cooccur.txt -HalfWinWidth 5 < corpus.txt > vocab.txt\n");
         return 0;
     }
     if ( (i = find_flag((char*)"-verbose", argc, argv)) > 0 ) {
