@@ -350,7 +350,7 @@ ARRAYUNIT * BuildVocab(FILE *CorpusFile, HASHUNITID **VocabHash,long long MaxVoc
     // 将带链表的哈希表转化为数组array，方便后面排序
     VocabSize = HashToArray(VocabHash,VocabArray,VocabSize);
     fprintf(stderr, "\nCounted %lld unique words.\n", VocabSize);
-    // 开始利用最大词表长度以及最小词频限制删减词典,
+    // 开始利用最大词表长度以及最小词频限制删减词典,并将词表保存在一个文件中
     CutVocab(VocabArray,MaxVocab,MinCount,VocabSize, IfSaveVocab);
     // 根据VocabArray再给哈希表里每个单词赋予id：
     FillIdToVocabHash(VocabArray,VocabHash);
